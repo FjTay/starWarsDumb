@@ -1,0 +1,48 @@
+* {
+  box-sizing : border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: lightsalmon;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+header div, header nav, #navBar, footer {
+  border: 1px solid red;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  width: 100%;
+}
+
+#map {
+  height: calc(100vh - 3rem);
+}
+
+.window, #planetPopUp {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  width: 90%;
+  height: 80%;
+  background: orange;
+}
+
+#planetPopUp {
+  width: 25%;
+  background: lightgreen;
+}
