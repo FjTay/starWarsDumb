@@ -1,65 +1,98 @@
 const planets = {
-    nabooh : {
+    Nabooh : {
         name: 'Nabooh',
-        coords: {
-            lat : 10,
-            long: 10
-        },
+        lat : 10,
+        long: 10,       
         shortInfo: {},
         characters : [],
         history : "",
         generalInfo : "",
     },
-    dagobah : {
+    Kashyyyk : {
+        name: 'Kashyyyk',
+        lat : 10,
+        long: 10,       
+        shortInfo: {},
+        characters : [],
+        history : "",
+        generalInfo : "",
+    },
+    Dagobah : {
         name: 'Dagobah',
-        coords: {
-            lat : 10,
-            long: 10
-        },
+        lat : 10,
+        long: 10,
         shortInfo: {},
         characters : [],
         history : "",
         generalInfo : "",
     },
-    deathStar : {
+    DeathStar : {
         name: 'Death Star',
-        coords: {
-            lat : 10,
-            long: 10
-        },
+        lat : 10,
+        long: 10,
         shortInfo: {},
         characters : [],
         history : "",
         generalInfo : "",
     },
-    alderaan : {
+    Alderaan : {
         name: 'Alderaan',
-        coords: {
-            lat : 10,
-            long: 10
-        },
+        lat : 10,
+        long: 10,
         shortInfo: {},
         characters : [],
         history : "",
         generalInfo : "",
     },
-    hoth : {
+    Hoth : {
         name: 'Hoth',
-        coords: {
-            lat : 90,
-            long: 0
-        },
+        lat : 90,
+        long: 0,
         shortInfo: {},
         characters : [],
         history : "",
         generalInfo : "",
     },
-    tatooine : {
+    Tatooine : {
         name: 'Tatooine',
-        coords: {
-            lat : 10,
-            long: 10
-        },
+        lat : 10,
+        long: 10,
+        shortInfo: {},
+        characters : [],
+        history : "",
+        generalInfo : "",
+    },
+    Mustafar : {
+        name: 'Mustafar',
+        lat : 24.7742,
+        long: 46.7385,
+        shortInfo: {},
+        characters : [],
+        history : "",
+        generalInfo : "",
+    },
+    Endor : {
+        name: 'Endor',
+        lat : 43.3879,
+        long: -1.6603,
+        shortInfo: {},
+        characters : [],
+        history : "",
+        generalInfo : "",
+    },
+    Felucia : {
+        name: 'Felucia',
+        lat : -17.5372,
+        long: -149.5660,
+        shortInfo: {},
+        characters : [],
+        history : "",
+        generalInfo : "",
+    },
+    Coruscant : {
+        name: 'Coruscant',
+        lat : 31.5203,
+        long: 74.3587,
         shortInfo: {},
         characters : [],
         history : "",

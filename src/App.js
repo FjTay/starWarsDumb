@@ -1,50 +1,66 @@
 import './App.css';
-import News from './news';
-import Contact from './contact';
-import AboutUs from './aboutUs';
-import { BrowserRouter as useParams, Route ,Link, Routes} from "react-router-dom";
-import Person from './person';
-import Home from './home';
-import PlanetPopUp from './planetPopUp';
-import { useEffect, useRef, useState, createContext, useContext, useMemo } from 'react';
+import { BrowserRouter as useParams, Route ,Link, Routes, useNavigate} from "react-router-dom";
+import Map from './map';
+import { useEffect, useState } from 'react';
 import planets from './planets';
-import primaryData from './primaryData';
-
-export const PlanetContext = createContext()
+import Header from './Header'
+import { ConnexionContextProvider } from "./contexts/connexionContext";
+import fetchFunctions from './Fetch'
+import PlanetCard from './PlanetCard'
+import SignIn from './SignIn';
+import Comments from './Comments';
+import Confirmation from './Confirmation';
+import Account from './Account';
+import PlanetInfo from './PlanetInfo';
+import Page404 from './Page404';
+import Connexion from './Connexion';
+import Footer from './Footer';
+import PlanetPopUp from './planetPopUp';
 
 function App() {
 
   const [planetsData, setPlanetsData] = useState({planets})
+  const [currentPlanet, setCurrentPlanet] = useState(false)
+  const [initial, setInitial] = useState({});
+
+  useEffect(() => {
+    Object.entries(planets).forEach(([key, value]) =>
+      fetchFunctions.fetchData(value.lat, value.long, true).then((data) => {
+        setInitial((old) => ({ ...old, [key]: data.daily }));
+      })
+    );
+  }, []);
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    currentPlanet ? navigate(`planets/${currentPlanet}`) : navigate("/")
+  }, [currentPlanet])
+
 
   return (
     <div className="App">
-      <header>
-        <nav>
-          <ul id="navBar">
-            <li><Link to="/news">News</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/aboutUs">About Us</Link></li>
-          </ul>
-        </nav>
-        <div>
-          Logo
-          <li><Link to="/">Home</Link></li>
-        </div>
-        <div>
-          Right DIV
-        </div>
-      </header>
-        <PlanetContext.Provider value={[planetsData, setPlanetsData]}>
+    <ConnexionContextProvider>
+        <Header setCurrentPlanet={setCurrentPlanet}></Header>
+        {/* <PlanetContext.Provider value={[planetsData, setPlanetsData]}> */}
           <Routes>
-            <Route path="aboutUs" element={<AboutUs />} />
-            <Route path="aboutUs/:person" element={<Person />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/planets/:planet" element={<PlanetPopUp/>} />
+              <Route path="planets/:planet" element={<PlanetPopUp initial={initial} />} />
+              <Route path="planets/:planet/details" element={<PlanetCard />} />
+              <Route path="planets/:planet/comments" element={<Comments />} />
+              <Route path="account/connexion" element={<Connexion />} />
+              <Route path="account/signIn" element={<SignIn />} />
+              <Route
+                path="account/confirmation/:action"
+                element={<Confirmation />}
+              />
+              <Route path="account/*" element={<Account />} />
+              <Route path="planets/:planet/info" element={<PlanetInfo />} />
+              <Route path="planets/error_404" element={<Page404 />} />
           </Routes>
-          <Home primaryData={primaryData}/>
-        </PlanetContext.Provider>
-      <footer>Footer</footer>
+          <Map setCurrentPlanet={setCurrentPlanet} />
+        {/* </PlanetContext.Provider> */}
+      </ConnexionContextProvider>
+      <Footer></Footer>
     </div>
   );
 }

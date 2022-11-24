@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import galaxyPic from './galaxy.png'
+// import galaxyPic from './galaxy.png'
 import rotationAxisPic from './rotationAxis.jpg'
 import mustafarPic from './mustafar.jpg'
 import tatooinePic from './tatooine.jpg'
@@ -13,10 +14,11 @@ import endorPic from './endor.jpg'
 import deathStarPic from './deathStar.jpg'
 import hothPic from './hoth.png'
 
-const Canvas = () => {
+const Canvas = () => {    
 
 const runGalaxy = () => {
-    // global variables
+
+// global variables
 let scene;
 let camera;
 let renderer;
@@ -206,6 +208,7 @@ const planetHover = () => {
             planetHighLighter = drawPlanetHighlighter()
             planetHighLighter.name = 'planetHighLighter'
             previousIntersect.object.add(planetHighLighter)
+                alert("hello")
         } else if (intersects.length === 0 && previousIntersect) {
             previousIntersect.object.children = previousIntersect.object.children.filter(elem => elem.name !== "planetHighLighter")
             previousIntersect = false
@@ -248,9 +251,10 @@ const render = () => {
 animate();
 }
 
-useEffect(() => {
+useEffect(() => { 
     runGalaxy()
 })
+
     return (<canvas className="webgl"></canvas>)
 }
 

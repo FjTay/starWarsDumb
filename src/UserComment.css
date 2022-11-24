@@ -1,0 +1,29 @@
+.comment {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.comment-header {
+  width: 95%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  border: 1px solid var(--primary-color);
+}
+
+.comment-body {
+  width: 95%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-left: 1px solid var(--primary-color);
+  border-right: 1px solid var(--primary-color);
+}
+
+.comment-footer {
+  width: 95%;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  border: 1px solid var(--primary-color);
+}

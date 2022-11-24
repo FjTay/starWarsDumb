@@ -1,0 +1,35 @@
+#comment-container div {
+  width: 80%;
+  display: flex;
+  height: 4rem;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  height: 4rem;
+  background: var(--light-color);
+}
+
+.button-comment {
+  width: 20%;
+  background: var(--light-color);
+  border: 0px;
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.connexion-page a {
+  width: 20%;
+}
+
+.button-comment:disabled:hover {
+  background: var(--light-color);
+  cursor: not-allowed;
+}
+
+.button-comment:hover {
+  background: var(--primary-color);
+  cursor: pointer;
+}
